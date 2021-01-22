@@ -1,4 +1,5 @@
-﻿using CleanApp.Infrastructure.Data;
+﻿using CleanApp.Application.Common.Interfaces;
+using CleanApp.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,6 +18,7 @@ namespace CleanApp.Infrastructure
             // DB Context
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("Default")));
 
+            services.AddScoped<IAppDbContext>(provider => provider.GetService<AppDbContext>());
 
             return services;
         }

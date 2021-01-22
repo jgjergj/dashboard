@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CleanApp.Domain.Entities
 {
-    public class InvoiceItem: AuditEntity
+    public class InvoiceItem : AuditEntity
     {
         public int Id { get; set; }
         public int InvoiceId { get; set; }
@@ -13,4 +13,5 @@ namespace CleanApp.Domain.Entities
         public double Quantity { get; set; }
         public double Rate { get; set; }
         public Invoice Invoice { get; set; }
+    }
 }

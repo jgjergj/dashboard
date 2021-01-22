@@ -1,14 +1,13 @@
+using CleanApp.API.Services;
+using CleanApp.Application.Common.Interfaces;
 using CleanApp.Infrastructure;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CleanApp.API
 {
@@ -24,6 +23,9 @@ namespace CleanApp.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddInfrastructure(Configuration);
+
+            services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped<ICurrentUserService, CurrentUserService>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -37,10 +39,7 @@ namespace CleanApp.API
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
         }
     }
