@@ -15,8 +15,4 @@
     <ProjectReference Include="..\CleanApp.Domain\CleanApp.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Ivoices\Queries\" />
-  </ItemGroup>
-
 </Project>
