@@ -18,7 +18,9 @@ namespace CleanApp.Infrastructure
             // DB Context
             services.AddDbContext<AppDbContext>(options => options.UseNpgsql(configuration.GetConnectionString("Default")));
 
-            services.AddScoped<IAppDbContext>(provider => provider.GetService<AppDbContext>());
+            //todo: checked if this works
+            services.AddScoped<IAppDbContext, AppDbContext>();
+            //services.AddScoped<IAppDbContext>(provider => provider.GetService<AppDbContext>());
 
             return services;
         }

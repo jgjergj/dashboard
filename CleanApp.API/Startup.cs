@@ -1,4 +1,5 @@
 using CleanApp.API.Services;
+using CleanApp.Application;
 using CleanApp.Application.Common.Interfaces;
 using CleanApp.Infrastructure;
 using Microsoft.AspNetCore.Builder;
@@ -22,6 +23,7 @@ namespace CleanApp.API
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddApplication();
             services.AddInfrastructure(Configuration);
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
