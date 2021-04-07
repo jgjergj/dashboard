@@ -22,6 +22,8 @@ namespace CleanApp.Infrastructure
             services.AddScoped<IAppDbContext, AppDbContext>();
             //services.AddScoped<IAppDbContext>(provider => provider.GetService<AppDbContext>());
 
+            services.AddIdentityServer();
+
             return services;
         }
     }

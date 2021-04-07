@@ -11,7 +11,7 @@ namespace CleanApp.API.Controllers
     //[Authorize]
     public class InvoicesController : ApiController
     {
-        private readonly ICurrentUserService _currentUser;
+        private ICurrentUserService _currentUser;
 
         public InvoicesController(ICurrentUserService currentUser)
         {

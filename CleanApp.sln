@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.API", "CleanApp.API\CleanApp.API.csproj", "{28AE5B63-F543-40B3-B578-25D62D4AB206}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanApp.Infrastructure", "Infrastructure\CleanApp.Infrastructure.csproj", "{91AC1FC7-ADC8-4A9D-AF35-17D98AE97311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Infrastructure", "Infrastructure\CleanApp.Infrastructure.csproj", "{91AC1FC7-ADC8-4A9D-AF35-17D98AE97311}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanApp.Application", "CleanApp.Application\CleanApp.Application.csproj", "{AF39F7A4-42A7-440D-B70C-78339495642D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Application", "CleanApp.Application\CleanApp.Application.csproj", "{AF39F7A4-42A7-440D-B70C-78339495642D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CleanApp.Domain", "CleanApp.Domain\CleanApp.Domain.csproj", "{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Domain", "CleanApp.Domain\CleanApp.Domain.csproj", "{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
