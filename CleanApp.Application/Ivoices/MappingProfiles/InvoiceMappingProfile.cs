@@ -21,7 +21,6 @@ namespace CleanApp.Application.Ivoices.MappingProfiles
             CreateMap<InvoiceItemVM, InvoiceItem>();
 
             CreateMap<CreateInvoiceCommand, Invoice>();
-
         }
     }
 }

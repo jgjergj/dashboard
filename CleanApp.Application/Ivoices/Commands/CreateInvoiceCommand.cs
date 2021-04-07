@@ -1,8 +1,13 @@
-﻿using CleanApp.Application.Ivoices.ViewModels;
+﻿using AutoMapper;
+using CleanApp.Application.Common.Interfaces;
+using CleanApp.Application.Ivoices.ViewModels;
+using CleanApp.Domain.Entities;
 using CleanApp.Domain.Enums;
 using MediatR;
 using System;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CleanApp.Application.Ivoices.Commands
 {
@@ -26,5 +31,26 @@ namespace CleanApp.Application.Ivoices.Commands
         public double Amount { get; set; }
         public double AmountPaid { get; set; }
         public List<InvoiceItemVM> InvoiceItems { get; set; }
+    }
+
+    public class CreateInvoiceComandHandler : IRequestHandler<CreateInvoiceCommand, int>
+    {
+        private readonly IAppDbContext _context;
+        private readonly IMapper _mapper;
+
+        public CreateInvoiceComandHandler(IAppDbContext context, IMapper mapper)
+        {
+            this._context = context;
+            this._mapper = mapper;
+        }
+        public async Task<int> Handle(CreateInvoiceCommand request, CancellationToken cancellationToken)
+        {
+            var entity = _mapper.Map<Invoice>(request);
+
+            _context.Invoices.Add(entity);
+            await _context.SaveChangesAsync(cancellationToken);
+
+            return entity.Id;
+        }
     }
 }
