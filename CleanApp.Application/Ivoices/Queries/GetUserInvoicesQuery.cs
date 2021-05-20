@@ -29,7 +29,7 @@ namespace CleanApp.Application.Ivoices.Queries
         {
             var result = new List<InvoiceVM>();
             var invoices = await _context.Invoices.Include(i => i.InvoiceItems)
-                .Where(i => i.CreatedBy == request.User).ToListAsync();
+                .Where(i => i.CreatedBy == request.User).ToListAsync(cancellationToken);
 
             if (invoices != null)
             {

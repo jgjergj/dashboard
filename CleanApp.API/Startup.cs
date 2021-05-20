@@ -17,22 +17,35 @@ namespace CleanApp.API
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; }
-
         public void ConfigureServices(IServiceCollection services)
         {
+            AddIdentity(services);
             services.AddApplication();
+
             services.AddInfrastructure(Configuration);
 
             services.TryAddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddScoped<ICurrentUserService, CurrentUserService>();
 
             services.AddControllers();
+
+            services.AddCors(options =>
+            {
+                // this defines a CORS policy called "default"
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins("http://arlekino.al") //todo: check the link
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
 
             services.AddOpenApiDocument(configure =>
             {
@@ -56,13 +69,27 @@ namespace CleanApp.API
                 app.UseOpenApi();
                 app.UseSwaggerUi3();
             }
-
+            app.UseCors("default");
             app.UseRouting();
+
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static void AddIdentity(IServiceCollection services)
+        {
+            services.AddAuthentication("Bearer")
+                .AddIdentityServerAuthentication("Bearer", options =>
+                {
+                    options.ApiName = "CleanApp.Api";
+                    options.Authority = "https://localhost:44304/";
+                    options.RequireHttpsMetadata = false;
+                });
         }
     }
 }

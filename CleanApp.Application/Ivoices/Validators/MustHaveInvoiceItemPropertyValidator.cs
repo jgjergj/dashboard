@@ -1,4 +1,5 @@
 ﻿using CleanApp.Application.Ivoices.ViewModels;
+using FluentValidation;
 using FluentValidation.Validators;
 using System;
 using System.Collections.Generic;
@@ -8,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace CleanApp.Application.Ivoices.Validators
 {
-    public class MustHaveInvoiceItemPropertyValidator: PropertyValidator
+    public class MustHaveInvoiceItemPropertyValidator<T, TProperty> : PropertyValidator<T, TProperty>
     {
-        protected override string GetDefaultMessageTemplate()
+        public override string Name => "MustHaveInvoiceItemPropertyValidator";
+
+        public override bool IsValid(ValidationContext<T> context, TProperty value)
         {
-            return "Property {PropertyName} should not be an empty list.";
+            return value is IList<InvoiceItemVM> list && list.Any();
         }
 
-        protected override bool IsValid(PropertyValidatorContext context)
+        protected override string GetDefaultMessageTemplate(string errorCode)
         {
-            return context.PropertyValue is IList<InvoiceItemVM> list && list.Any();
+            return errorCode + ": Property {PropertyName} should not be an empty list.";
         }
     }
 }

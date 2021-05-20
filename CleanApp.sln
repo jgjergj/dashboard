@@ -5,11 +5,13 @@ VisualStudioVersion = 16.0.30907.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.API", "CleanApp.API\CleanApp.API.csproj", "{28AE5B63-F543-40B3-B578-25D62D4AB206}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Infrastructure", "Infrastructure\CleanApp.Infrastructure.csproj", "{91AC1FC7-ADC8-4A9D-AF35-17D98AE97311}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Infrastructure", "CleanApp.Infrastructure\CleanApp.Infrastructure.csproj", "{91AC1FC7-ADC8-4A9D-AF35-17D98AE97311}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Application", "CleanApp.Application\CleanApp.Application.csproj", "{AF39F7A4-42A7-440D-B70C-78339495642D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.Domain", "CleanApp.Domain\CleanApp.Domain.csproj", "{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CleanApp.IdentityServer", "CleanApp.IdentityServer4\CleanApp.IdentityServer.csproj", "{15B23A44-7C84-4E59-BBAB-4A98AE251E4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A7AB7B67-C5EF-41EA-A70F-EB21960324EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15B23A44-7C84-4E59-BBAB-4A98AE251E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15B23A44-7C84-4E59-BBAB-4A98AE251E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15B23A44-7C84-4E59-BBAB-4A98AE251E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15B23A44-7C84-4E59-BBAB-4A98AE251E4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

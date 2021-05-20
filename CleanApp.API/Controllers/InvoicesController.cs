@@ -2,13 +2,14 @@
 using CleanApp.Application.Ivoices.Commands;
 using CleanApp.Application.Ivoices.Queries;
 using CleanApp.Application.Ivoices.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace CleanApp.API.Controllers
 {
-    //[Authorize]
+    [Authorize]
     public class InvoicesController : ApiController
     {
         private readonly ICurrentUserService _currentUser;
