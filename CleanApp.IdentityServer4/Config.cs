@@ -10,18 +10,6 @@ namespace CleanApp.IdentityServer
         {
             new Client
             {
-                ClientId = "cleanapp-api-client",
-                ClientName = "CleanApp Api Client",
-                AllowedGrantTypes = GrantTypes.ClientCredentials,
-                ClientSecrets =
-                {
-                    new Secret("SuperSecretPassword".Sha256())
-                },
-                AllowedScopes = { "write", "read" }               
-            },
-
-            new Client
-            {
                 ClientId = "cleanapp-web-client",
                 ClientName = "CleanApp JavaScript Client",
                 AllowedGrantTypes = new List<string> { GrantType.AuthorizationCode },
@@ -40,17 +28,16 @@ namespace CleanApp.IdentityServer
                 RequireConsent = false,
 
                 //todo: to be added when the js app is ready
-                RedirectUris =           { "http://localhost:5003/callback.html" },
-                PostLogoutRedirectUris = { "http://localhost:5003/index.html" },
-                AllowedCorsOrigins =     { "http://localhost:5003" },
+                RedirectUris =           { "http://localhost:8080" },
+                PostLogoutRedirectUris = { "http://localhost:8080" },
+                AllowedCorsOrigins =     { "http://localhost:8080" },
 
                 AllowedScopes =
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
-                    "cleanapp-api-client", "write", "read"
+                    "cleanapp-api", "write", "read"
                 }
-
             }
         };
 
@@ -64,7 +51,8 @@ namespace CleanApp.IdentityServer
                 Scopes = new List<string>
                 {
                     "write",
-                    "read"
+                    "read",
+                    "cleanapp-api"
                 }
             }
         };
@@ -84,7 +72,8 @@ namespace CleanApp.IdentityServer
         public static IEnumerable<ApiScope> ApiScopes = new List<ApiScope>
         {
             new ApiScope("read"),
-            new ApiScope("write")
+            new ApiScope("write"),
+            new ApiScope("cleanapp-api")
         };
     }
 }

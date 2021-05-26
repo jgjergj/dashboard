@@ -41,7 +41,7 @@ namespace CleanApp.API
                 // this defines a CORS policy called "default"
                 options.AddPolicy("default", policy =>
                 {
-                    policy.WithOrigins("http://arlekino.al") //todo: check the link
+                    policy.WithOrigins("http://localhost:8080") //todo: check the link
                         .AllowAnyHeader()
                         .AllowAnyMethod();
                 });

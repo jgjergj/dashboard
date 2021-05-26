@@ -48,6 +48,16 @@ namespace CleanApp.IdentityServer
                 })
                 .AddDeveloperSigningCredential();
 
+            services.AddCors(options =>
+            {
+                options.AddPolicy("default", policy =>
+                {
+                    policy.WithOrigins("http://localhost:8080")
+                        .AllowAnyHeader()
+                        .AllowAnyMethod();
+                });
+            });
+
             services.AddControllersWithViews();
         }
 
@@ -57,7 +67,7 @@ namespace CleanApp.IdentityServer
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            app.UseCors("default");
             app.UseStaticFiles();
             app.UseRouting();
             app.UseIdentityServer();
