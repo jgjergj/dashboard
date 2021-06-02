@@ -5,13 +5,13 @@ using Dashboard.Domain.Entities;
 
 namespace Dashboard.Application.States.MappingProfiles
 {
-    class StateMappingProfile: Profile
+    class StateMappingProfile : Profile
     {
         public StateMappingProfile()
         {
             CreateMap<State, StateVM>();
 
-            CreateMap<StateVM, State> ();
+            CreateMap<StateVM, State>();
 
             CreateMap<CreateStateCommand, State>();
         }

@@ -3,13 +3,12 @@ using Dashboard.Application.Common.Interfaces;
 using Dashboard.Application.States.ViewModels;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Dashboard.Application.States.Queries
 {
-    public class GetStateQuery: IRequest<StateVM>
+    public class GetStateQuery : IRequest<StateVM>
     {
         public int Id { get; set; }
 

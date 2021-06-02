@@ -1,15 +1,11 @@
 ﻿using Dashboard.Application.Ivoices.Commands;
 using Dashboard.Application.Ivoices.ViewModels;
 using FluentValidation;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Dashboard.Application.Ivoices.Validators
 {
-    public class CreateInvoiceCommandValidator: AbstractValidator<CreateInvoiceCommand>
+    public class CreateInvoiceCommandValidator : AbstractValidator<CreateInvoiceCommand>
     {
         public CreateInvoiceCommandValidator()
         {

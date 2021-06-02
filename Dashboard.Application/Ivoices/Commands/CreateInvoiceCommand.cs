@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Dashboard.Application.Ivoices.Commands
 {
-    public class CreateInvoiceCommand: IRequest<int>
+    public class CreateInvoiceCommand : IRequest<int>
     {
         public CreateInvoiceCommand()
         {

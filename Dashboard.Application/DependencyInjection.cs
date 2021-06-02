@@ -1,5 +1,5 @@
-﻿using FluentValidation;
-using Dashboard.Application.Common.Behaviors;
+﻿using Dashboard.Application.Common.Behaviors;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
@@ -14,7 +14,7 @@ namespace Dashboard.Application
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehavior<,>));
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            return services;        
+            return services;
         }
     }
 }

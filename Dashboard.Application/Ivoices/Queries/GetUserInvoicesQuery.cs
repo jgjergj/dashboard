@@ -2,15 +2,13 @@
 using Dashboard.Application.Common.Interfaces;
 using Dashboard.Application.Ivoices.ViewModels;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace Dashboard.Application.Ivoices.Queries
 {
-    public class GetUserInvoicesQuery: IRequest<IList<InvoiceVM>>
+    public class GetUserInvoicesQuery : IRequest<IList<InvoiceVM>>
     {
         public string User { get; set; }
     }

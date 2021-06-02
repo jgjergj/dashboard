@@ -1,8 +1,6 @@
 ﻿using Dashboard.Application.Common.Interfaces;
 using Dashboard.Domain.Common;
 using Dashboard.Domain.Entities;
-using Dashboard.Infrastructure.Models;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Threading;
@@ -22,7 +20,12 @@ namespace Dashboard.Infrastructure.Data
             _currentUserService = currentUserService;
         }
 
+        public DbSet<Client> Clients { get; set; }
+        public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Sport> Sports { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<Status> Statuses { get; set; }
+        public DbSet<Domain.Entities.Type> Types { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)
         {

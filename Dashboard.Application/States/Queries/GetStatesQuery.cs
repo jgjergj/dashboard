@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Dashboard.Application.States.Queries
 {
-    public class GetStatesQuery: IRequest<IList<StateVM>>
+    public class GetStatesQuery : IRequest<IList<StateVM>>
     {
     }
 
