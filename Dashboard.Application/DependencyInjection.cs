@@ -1,5 +1,5 @@
 ﻿using FluentValidation;
-using InvoiceManagementApp.Application.Common.Behaviors;
+using Dashboard.Application.Common.Behaviors;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;

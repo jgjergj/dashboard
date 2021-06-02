@@ -47,7 +47,7 @@ namespace Dashboard.Application.Ivoices.Commands
         {
             var entity = _mapper.Map<Invoice>(request);
 
-            _context.Invoices.Add(entity);
+            //_context.Invoices.Add(entity);
             await _context.SaveChangesAsync(cancellationToken);
 
             return entity.Id;

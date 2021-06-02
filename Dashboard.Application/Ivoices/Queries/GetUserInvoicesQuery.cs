@@ -28,13 +28,13 @@ namespace Dashboard.Application.Ivoices.Queries
         public async Task<IList<InvoiceVM>> Handle(GetUserInvoicesQuery request, CancellationToken cancellationToken)
         {
             var result = new List<InvoiceVM>();
-            var invoices = await _context.Invoices.Include(i => i.InvoiceItems)
-                .Where(i => i.CreatedBy == request.User).ToListAsync(cancellationToken);
+            //var invoices = await _context.Invoices.Include(i => i.InvoiceItems)
+            //    .Where(i => i.CreatedBy == request.User).ToListAsync(cancellationToken);
 
-            if (invoices != null)
-            {
-                result = _mapper.Map<List<InvoiceVM>>(invoices);
-            }
+            //if (invoices != null)
+            //{
+            //    result = _mapper.Map<List<InvoiceVM>>(invoices);
+            //}
 
             return result;
         }

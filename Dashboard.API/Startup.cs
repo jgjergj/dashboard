@@ -90,6 +90,11 @@ namespace Dashboard.API
                     options.Authority = "https://localhost:44304/";
                     options.RequireHttpsMetadata = false;
                 });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DashboardApi", policy => policy.RequireClaim("scope", "dashboard-api"));
+            });
         }
     }
 }

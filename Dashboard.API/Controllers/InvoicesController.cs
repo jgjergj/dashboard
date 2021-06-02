@@ -9,26 +9,26 @@ using System.Threading.Tasks;
 
 namespace Dashboard.API.Controllers
 {
-    [Authorize]
-    public class InvoicesController : ApiController
-    {
-        private readonly ICurrentUserService _currentUser;
+    //[Authorize]
+    //public class InvoicesController : ApiController
+    //{
+    //    private readonly ICurrentUserService _currentUser;
 
-        public InvoicesController(ICurrentUserService currentUser)
-        {
-            _currentUser = currentUser;
-        }
+    //    public InvoicesController(ICurrentUserService currentUser)
+    //    {
+    //        _currentUser = currentUser;
+    //    }
 
-        [HttpPost]
-        public async Task<ActionResult<int>> Create(CreateInvoiceCommand command)
-        {
-            return await Mediator.Send(command);
-        }
+    //    [HttpPost]
+    //    public async Task<ActionResult<int>> Create(CreateInvoiceCommand command)
+    //    {
+    //        return await Mediator.Send(command);
+    //    }
 
-        [HttpGet]
-        public async Task<IList<InvoiceVM>> Get()
-        {
-            return await Mediator.Send(new GetUserInvoicesQuery { User = _currentUser.UserId });
-        }
-    }
+    //    [HttpGet]
+    //    public async Task<IList<InvoiceVM>> Get()
+    //    {
+    //        return await Mediator.Send(new GetUserInvoicesQuery { User = _currentUser.UserId });
+    //    }
+    //}
 }

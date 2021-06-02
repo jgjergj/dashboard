@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using ValidationException = Dashboard.Application.Common.Exceptions.ValidationException;
 
-namespace InvoiceManagementApp.Application.Common.Behaviors
+namespace Dashboard.Application.Common.Behaviors
 {
 	public class ValidationBehavior<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse> where TRequest : IRequest<TResponse>
 	{
