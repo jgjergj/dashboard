@@ -26,7 +26,7 @@ namespace Dashboard.Application.Companies.Queries
         public async Task<IList<CompanyVM>> Handle(GetCompaniesQuery request, CancellationToken cancellationToken)
         {
             var result = new List<CompanyVM>();
-            var Companies = await _context.Companies.ToListAsync(cancellationToken);
+            var Companies = await _context.Companies.Include(m => m.Type).ToListAsync(cancellationToken);
 
             if (Companies != null)
             {
