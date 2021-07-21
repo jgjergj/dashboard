@@ -27,6 +27,7 @@ namespace Dashboard.Infrastructure.Data
         public DbSet<Sport> Sports { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<Status> Statuses { get; set; }
+        public DbSet<Team> Teams { get; set; }
         public DbSet<Domain.Entities.Type> Types { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken)

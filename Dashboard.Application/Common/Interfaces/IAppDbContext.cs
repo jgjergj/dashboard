@@ -14,6 +14,7 @@ namespace Dashboard.Application.Common.Interfaces
         DbSet<Sport> Sports { get; set; }
         DbSet<State> States { get; set; }
         DbSet<Status> Statuses { get; set; }
+        DbSet<Team> Teams { get; set; }
         DbSet<Type> Types { get; set; }
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
     }
