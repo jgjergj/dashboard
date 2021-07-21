@@ -10,8 +10,8 @@ namespace Dashboard.Application.Leagues.Commands
     public class CreateLeagueCommand : IRequest<int>
     {
         public string Name { get; set; }
-        public State State { get; set; }
-        public Sport Sport { get; set; }
+        public int StateId { get; set; }
+        public int SportId { get; set; }
     }
 
     public class CreateLeagueCommandHandler : IRequestHandler<CreateLeagueCommand, int>

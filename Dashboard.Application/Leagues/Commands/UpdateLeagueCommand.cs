@@ -12,8 +12,8 @@ namespace Dashboard.Application.Leagues.Commands
         public int Id { get; set; }
 
         public string Name { get; set; }
-        public State State { get; set; }
-        public Sport Sport { get; set; }
+        public int StateId { get; set; }
+        public int SportId { get; set; }
 
     }
 
@@ -37,8 +37,8 @@ namespace Dashboard.Application.Leagues.Commands
 
             //todo: use AutoMapper here
             entity.Name = request.Name;
-            entity.State = request.State;
-            entity.Sport = request.Sport;
+            entity.StateId = request.StateId;
+            entity.SportId = request.SportId;
 
             await _context.SaveChangesAsync(cancellationToken);
 
