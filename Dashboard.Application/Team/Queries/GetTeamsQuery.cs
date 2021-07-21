@@ -26,7 +26,7 @@ namespace Dashboard.Application.Teams.Queries
         public async Task<IList<TeamVM>> Handle(GetTeamsQuery request, CancellationToken cancellationToken)
         {
             var result = new List<TeamVM>();
-            var Teams = await _context.Teams.Include(m => m.Sport).Include(m => m.State).ToListAsync(cancellationToken);
+            var Teams = await _context.Teams.Include(m => m.Sport).Include(m => m.State).Include(m => m.League).ToListAsync(cancellationToken);
 
             if (Teams != null)
             {

@@ -39,6 +39,7 @@ namespace Dashboard.Application.Teams.Commands
             entity.Name = request.Name;
             entity.StateId = request.StateId;
             entity.SportId = request.SportId;
+            entity.LeagueId = request.LeagueId;
 
             await _context.SaveChangesAsync(cancellationToken);
 
