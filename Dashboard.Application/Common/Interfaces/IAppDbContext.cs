@@ -10,6 +10,7 @@ namespace Dashboard.Application.Common.Interfaces
         DbSet<Client> Clients { get; set; }
         DbSet<Company> Companies { get; set; }
         DbSet<Currency> Currencies { get; set; }
+        DbSet<Department> Departments { get; set; }
         DbSet<League> Leagues { get; set; }
         DbSet<Operator> Operators { get; set; }
         DbSet<PaymentAccount> PaymentAccounts { get; set; }
