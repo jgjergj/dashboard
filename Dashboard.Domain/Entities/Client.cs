@@ -8,7 +8,7 @@ namespace Dashboard.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public double Balance { get; set; }
-        public int OperatorId { get; set; }
+        public int? OperatorId { get; set; }
         public Operator Operator { get; set; }
     }
 }
