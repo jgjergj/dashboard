@@ -28,6 +28,13 @@ namespace Dashboard.API.Controllers
             return await Mediator.Send(new GetClientQuery(id));
         }
 
+        // GET api/<ClientsController>/5
+        [Route("Unassigned")]
+        public async Task<IList<ClientVM>> GetClientsWithNoOperator()
+        {
+            return await Mediator.Send(new GetClientsWithNoOperatorQuery());
+        }
+
         // POST api/<ClientsController>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateClientCommand command)
