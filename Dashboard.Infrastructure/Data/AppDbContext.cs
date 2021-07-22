@@ -23,6 +23,7 @@ namespace Dashboard.Infrastructure.Data
         public DbSet<Client> Clients { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Currency> Currencies { get; set; }
+        public DbSet<Department> Departments { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Operator> Operators { get; set; }
         public DbSet<PaymentAccount> PaymentAccounts { get; set; }
