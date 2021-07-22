@@ -3,15 +3,17 @@ using System;
 using Dashboard.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Dashboard.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210722133141_AddOperatorEntity")]
+    partial class AddOperatorEntity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -44,7 +46,7 @@ namespace Dashboard.Infrastructure.Migrations
                     b.Property<string>("Name")
                         .HasColumnType("text");
 
-                    b.Property<int>("OperatorId")
+                    b.Property<int?>("OperatorId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Surname")
@@ -356,13 +358,9 @@ namespace Dashboard.Infrastructure.Migrations
 
             modelBuilder.Entity("Dashboard.Domain.Entities.Client", b =>
                 {
-                    b.HasOne("Dashboard.Domain.Entities.Operator", "Operator")
+                    b.HasOne("Dashboard.Domain.Entities.Operator", null)
                         .WithMany("Clients")
-                        .HasForeignKey("OperatorId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Operator");
+                        .HasForeignKey("OperatorId");
                 });
 
             modelBuilder.Entity("Dashboard.Domain.Entities.Company", b =>
