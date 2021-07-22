@@ -34,13 +34,14 @@ namespace Dashboard.Application.Operators.Commands
                 throw new NotFoundException(nameof(Operator), request.Id);
             }
             
+            _context.Operators.Remove(entity);
+            
             var clients = _context.Clients.Where(c => c.OperatorId == entity.Id).ToList();
             foreach (var client in clients)
             {
-                client.OperatorId = 0;
+                client.OperatorId = null;
             }
 
-            _context.Operators.Remove(entity);
 
             await _context.SaveChangesAsync(cancellationToken);
 
