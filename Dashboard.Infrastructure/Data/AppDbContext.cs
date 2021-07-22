@@ -25,6 +25,7 @@ namespace Dashboard.Infrastructure.Data
         public DbSet<Currency> Currencies { get; set; }
         public DbSet<League> Leagues { get; set; }
         public DbSet<Operator> Operators { get; set; }
+        public DbSet<PaymentAccount> PaymentAccounts { get; set; }
         public DbSet<Sport> Sports { get; set; }
         public DbSet<State> States { get; set; }
         public DbSet<Status> Statuses { get; set; }
