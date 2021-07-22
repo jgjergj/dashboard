@@ -13,11 +13,11 @@ namespace Dashboard.Domain.Entities
         //}
         public int Id { get; set; }
         public string Name { get; set; }
-        public double Balance { get; set; }        
+        public double Balance { get; set; }
         //public List<Client> Clients { get; set; }
 
-        //public int DepartmentId { get; set; }
-        //public Department DepartmentId { get; set; }
+        public int? DepartmentId { get; set; }
+        public Department Department { get; set; }
 
         //accounts
         //transfers
