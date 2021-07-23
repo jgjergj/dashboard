@@ -7,6 +7,7 @@ namespace Dashboard.Application.Common.Interfaces
 {
     public interface IAppDbContext
     {
+        DbSet<Account> Accounts { get; set; }
         DbSet<Client> Clients { get; set; }
         DbSet<Company> Companies { get; set; }
         DbSet<Currency> Currencies { get; set; }
