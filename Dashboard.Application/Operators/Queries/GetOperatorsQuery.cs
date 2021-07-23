@@ -26,7 +26,7 @@ namespace Dashboard.Application.Operators.Queries
         public async Task<IList<OperatorVM>> Handle(GetOperatorsQuery request, CancellationToken cancellationToken)
         {
             var result = new List<OperatorVM>();
-            var Operators = await _context.Operators.ToListAsync(cancellationToken);
+            var Operators = await _context.Operators.Include(o => o.Department).ToListAsync(cancellationToken);
 
             if (Operators != null)
             {
