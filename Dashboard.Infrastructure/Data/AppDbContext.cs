@@ -20,6 +20,7 @@ namespace Dashboard.Infrastructure.Data
             _currentUserService = currentUserService;
         }
 
+        public DbSet<Account> Accounts { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Currency> Currencies { get; set; }
