@@ -28,7 +28,7 @@ namespace Dashboard.API.Controllers
             return await Mediator.Send(new GetClientQuery(id));
         }
 
-        // GET api/<ClientsController>/5
+        // GET api/<ClientsController>
         [Route("Unassigned")]
         public async Task<IList<ClientVM>> GetClientsWithNoOperator()
         {

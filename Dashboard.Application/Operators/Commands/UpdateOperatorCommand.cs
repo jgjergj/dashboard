@@ -13,6 +13,7 @@ namespace Dashboard.Application.Operators.Commands
         public int Id { get; set; }
         public string Name { get; set; }
         public double Balance { get; set; }
+        public int DepartmentId { get; set; }
         //public List<int> Clients { get; set; }
 
     }
