@@ -21,6 +21,7 @@ namespace Dashboard.Infrastructure.Data
         }
 
         public DbSet<Account> Accounts { get; set; }
+        public DbSet<ArbitrageMatch> ArbitrageMatches { get; set; }
         public DbSet<Client> Clients { get; set; }
         public DbSet<Company> Companies { get; set; }
         public DbSet<Currency> Currencies { get; set; }
