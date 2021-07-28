@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Dashboard.Application.Common.Exceptions;
 using Dashboard.Application.Common.Interfaces;
-using Dashboard.Domain.Entities;
 using MediatR;
 using System;
 using System.Threading;
