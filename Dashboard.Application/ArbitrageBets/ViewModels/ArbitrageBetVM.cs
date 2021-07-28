@@ -1,4 +1,5 @@
 ﻿using Dashboard.Application.Accounts.ViewModels;
+using Dashboard.Application.ArbitrageMatches.ViewModels;
 using Dashboard.Application.Companies.ViewModels;
 using Dashboard.Application.Statuses.ViewModels;
 using Dashboard.Application.Types.ViewModels;
@@ -9,7 +10,7 @@ namespace Dashboard.Application.ArbitrageBets.ViewModels
     public class ArbitrageBetVM
     {
         public int Id { get; set; }
-        //public ArbitrageMatchVM ArbitrageMatch { get; set; }
+        public ArbitrageMatchVM ArbitrageMatch { get; set; }
         public CompanyVM Company { get; set; }
         public AccountVM Account { get; set; }
         public string Line { get; set; }
