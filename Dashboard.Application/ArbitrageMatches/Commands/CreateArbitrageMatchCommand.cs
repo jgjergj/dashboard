@@ -10,9 +10,11 @@ namespace Dashboard.Application.ArbitrageMatches.Commands
 {
     public class CreateArbitrageMatchCommand : IRequest<Guid>
     {
+        public int SportId { get; set; }
         public int LeagueId { get; set; }
         public int HomeTeamId { get; set; }
         public int AwayTeamId { get; set; }
+        public string MatchName { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
     }

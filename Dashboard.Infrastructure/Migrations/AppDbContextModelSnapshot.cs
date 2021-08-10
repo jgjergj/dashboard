@@ -145,10 +145,10 @@ namespace Dashboard.Infrastructure.Migrations
                     b.Property<double>("Stake")
                         .HasColumnType("double precision");
 
-                    b.Property<int>("StatusId")
+                    b.Property<int?>("StatusId")
                         .HasColumnType("integer");
 
-                    b.Property<int>("TypeId")
+                    b.Property<int?>("TypeId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -196,6 +196,12 @@ namespace Dashboard.Infrastructure.Migrations
                     b.Property<int>("LeagueId")
                         .HasColumnType("integer");
 
+                    b.Property<string>("MatchName")
+                        .HasColumnType("text");
+
+                    b.Property<int>("SportId")
+                        .HasColumnType("integer");
+
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp without time zone");
 
@@ -206,6 +212,8 @@ namespace Dashboard.Infrastructure.Migrations
                     b.HasIndex("HomeTeamId");
 
                     b.HasIndex("LeagueId");
+
+                    b.HasIndex("SportId");
 
                     b.ToTable("ArbitrageMatches");
                 });
@@ -727,15 +735,11 @@ namespace Dashboard.Infrastructure.Migrations
 
                     b.HasOne("Dashboard.Domain.Entities.Status", "Status")
                         .WithMany()
-                        .HasForeignKey("StatusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("StatusId");
 
                     b.HasOne("Dashboard.Domain.Entities.Type", "Type")
                         .WithMany()
-                        .HasForeignKey("TypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("TypeId");
 
                     b.Navigation("Account");
 
@@ -768,11 +772,19 @@ namespace Dashboard.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("Dashboard.Domain.Entities.Sport", "Sport")
+                        .WithMany()
+                        .HasForeignKey("SportId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("AwayTeam");
 
                     b.Navigation("HomeTeam");
 
                     b.Navigation("League");
+
+                    b.Navigation("Sport");
                 });
 
             modelBuilder.Entity("Dashboard.Domain.Entities.Client", b =>
