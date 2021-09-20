@@ -28,6 +28,12 @@ namespace Dashboard.Application.ArbitrageBets.Queries
 
             var result = new List<ArbitrageBetVM>();
             var arbitrageBets = await _context.ArbitrageBets
+                .Include(a => a.ArbitrageMatch)
+                    .ThenInclude(m => m.League)
+                .Include(a => a.ArbitrageMatch)
+                    .ThenInclude(m => m.HomeTeam)
+                .Include(a => a.ArbitrageMatch)
+                    .ThenInclude(m => m.AwayTeam)
                 .Include(a => a.Company)
                 .Include(a => a.Account)
                 .Include(a => a.Status)
