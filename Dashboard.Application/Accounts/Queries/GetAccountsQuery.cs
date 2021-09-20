@@ -6,11 +6,22 @@ using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Linq;
+using Dashboard.Domain.Entities;
+using Dashboard.Application.Common.Utils;
 
 namespace Dashboard.Application.Accounts.Queries
 {
     public class GetAccountsQuery : IRequest<IList<AccountVM>>
     {
+        public string FilterBy { get; set; }
+        public string Value { get; set; }
+
+        public GetAccountsQuery(string FilterBy, string Value)
+        {
+            this.FilterBy = FilterBy;
+            this.Value = Value;
+        }
     }
 
     public class GetAccountsQueryHandler : IRequestHandler<GetAccountsQuery, IList<AccountVM>>
@@ -26,7 +37,8 @@ namespace Dashboard.Application.Accounts.Queries
         public async Task<IList<AccountVM>> Handle(GetAccountsQuery request, CancellationToken cancellationToken)
         {
             var result = new List<AccountVM>();
-            var Accounts = await _context.Accounts
+
+            IQueryable<Account> accountsQuery = _context.Accounts
                 .Include(a => a.Company)
                 .Include(a => a.Currency)
                 .Include(a => a.Status)
@@ -34,11 +46,19 @@ namespace Dashboard.Application.Accounts.Queries
                 .Include(a => a.State)
                 .Include(a => a.Operator)
                 .Include(a => a.PaymentAccount)
-                .ToListAsync(cancellationToken);
+                .AsQueryable();
 
-            if (Accounts != null)
+            if (!string.IsNullOrEmpty(request.FilterBy))
             {
-                result = _mapper.Map<List<AccountVM>>(Accounts);
+                var predicate = Utils.CreatePredicate<Account>(request.FilterBy, request.Value);
+                accountsQuery = accountsQuery.Where(predicate);
+            }
+
+            var accounts = await accountsQuery.ToListAsync(cancellationToken);
+
+            if (accounts != null)
+            {
+                result = _mapper.Map<List<AccountVM>>(accounts);
             }
 
             return result;

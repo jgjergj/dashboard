@@ -16,9 +16,9 @@ namespace Dashboard.API.Controllers
     {
         // GET: api/<AccountsController>
         [HttpGet]
-        public async Task<IList<AccountVM>> Get()
+        public async Task<IList<AccountVM>> Get(string? FilterBy = null, string? Value = null)
         {
-            return await Mediator.Send(new GetAccountsQuery());
+            return await Mediator.Send(new GetAccountsQuery(FilterBy, Value));
         }
 
         // GET api/<AccountsController>/5
