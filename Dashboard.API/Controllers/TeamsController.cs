@@ -16,9 +16,9 @@ namespace Dashboard.API.Controllers
     {
         // GET: api/<TeamsController>
         [HttpGet]
-        public async Task<IList<TeamVM>> Get()
+        public async Task<IList<TeamVM>> Get(string? filterBy = null, string? value = null)
         {
-            return await Mediator.Send(new GetTeamsQuery());
+            return await Mediator.Send(new GetTeamsQuery(filterBy, value));
         }
 
         // GET api/<TeamsController>/5
