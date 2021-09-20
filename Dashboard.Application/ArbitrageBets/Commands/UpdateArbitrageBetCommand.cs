@@ -11,17 +11,16 @@ namespace Dashboard.Application.ArbitrageBets.Commands
     public class UpdateArbitrageBetCommand : IRequest
     {
         public int Id { get; set; }
-        public Guid ArbitrageMatchId { get; set; }
-        public int CompanyId { get; set; }
-        public int ArbitrageBetId { get; set; }
-        public string Line { get; set; }
-        public int StatusId { get; set; }
-        public double Stake { get; set; }
-        public double Odd { get; set; }
-        public double Return { get; set; }
-        public double Profit { get; set; }
-        public double ProfitARB { get; set; }
-        public int TypeId { get; set; }
+        public int? CompanyId { get; set; }
+        public int? AccountId { get; set; }
+        public string? Line { get; set; }
+        public int? StatusId { get; set; }
+        public double? Stake { get; set; }
+        public double? Odd { get; set; }
+        public double? Return { get; set; }
+        public double? Profit { get; set; }
+        public double? ProfitARB { get; set; }
+        public int? TypeId { get; set; }
     }
 
     public class UpdateArbitrageBetCommandHandler : IRequestHandler<UpdateArbitrageBetCommand>
@@ -42,6 +41,26 @@ namespace Dashboard.Application.ArbitrageBets.Commands
             if (entity == null)
             {
                 throw new NotFoundException(nameof(ArbitrageBets), request.Id);
+            }
+
+            if (request.AccountId == null)
+            {
+                request.AccountId = entity.AccountId;
+            }
+
+            if (request.CompanyId == null)
+            {
+                request.CompanyId = entity.CompanyId;
+            }
+
+            if (request.StatusId == null)
+            {
+                request.StatusId = entity.StatusId;
+            }
+
+            if (request.TypeId == null)
+            {
+                request.TypeId = entity.TypeId;
             }
 
             _mapper.Map(request, entity);            

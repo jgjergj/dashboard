@@ -12,14 +12,14 @@ namespace Dashboard.Domain.Entities
         public int AccountId { get; set; }
         public Account Account { get; set; }
         public string Line { get; set; }
-        public int StatusId { get; set; }
-        public Status Status { get; set; }
+        public int? StatusId { get; set; }
+        public Status? Status { get; set; }
         public double Stake { get; set; }
         public double Odd { get; set; }
         public double Return { get; set; }
         public double Profit { get; set; }
         public double ProfitARB { get; set; }
-        public int TypeId { get; set; }
-        public Type Type { get; set; }
+        public int? TypeId { get; set; }
+        public Type? Type { get; set; }
     }
 }
