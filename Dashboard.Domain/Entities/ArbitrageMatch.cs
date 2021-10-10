@@ -22,6 +22,8 @@ namespace Dashboard.Domain.Entities
         //        this.matchName = HomeTeam.Name + " vs " + AwayTeam.Name;
         //    }
         //}
+        public int StateId { get; set; }
+        public State State { get; set; }
         public int SportId { get; set; }
         public Sport Sport { get; set; }
         public int LeagueId { get; set; }

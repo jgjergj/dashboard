@@ -1,5 +1,6 @@
 ﻿using Dashboard.Application.Leagues.ViewModels;
 using Dashboard.Application.Sports.ViewModels;
+using Dashboard.Application.States.ViewModels;
 using Dashboard.Application.Teams.ViewModels;
 using System;
 
@@ -9,6 +10,7 @@ namespace Dashboard.Application.ArbitrageMatches.ViewModels
     {
         public Guid Id { get; set; }
         public string MatchName { get; set; }
+        public StateVM State { get; set; }
         public SportVM Sport { get; set; }
         public LeagueVM League { get; set; }
         public TeamVM HomeTeam { get; set; }

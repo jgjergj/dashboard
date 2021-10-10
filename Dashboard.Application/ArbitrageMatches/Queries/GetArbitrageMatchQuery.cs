@@ -33,6 +33,7 @@ namespace Dashboard.Application.ArbitrageMatches.Queries
         {
             var result = new ArbitrageMatchVM();
             var arbitrageMatch = await _context.ArbitrageMatches
+                .Include(a => a.State)
                 .Include(a => a.Sport)
                 .Include(a => a.League)
                 .Include(a => a.HomeTeam)
