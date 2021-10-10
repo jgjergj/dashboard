@@ -47,6 +47,18 @@ namespace Dashboard.API.Controllers
             return await Mediator.Send(command);
         }
 
+        // PUT api/<ArbitrageBetsController>
+        [HttpPut("UpdateStatus")]
+        public async Task<ActionResult<Unit>> UpdateStatus(int id, UpdateArbitrageBetStatusCommand command)
+        {
+            if (id != command.Id)
+            {
+                return BadRequest();
+            }
+
+            return await Mediator.Send(command);
+        }
+
         // DELETE api/<ArbitrageBetsController>
         [HttpDelete("{id}")]
         public async Task<ActionResult<Unit>> Delete(int id)
