@@ -16,9 +16,9 @@ namespace Dashboard.API.Controllers
     {
         // GET: api/<SportsController>
         [HttpGet]
-        public async Task<IList<SportVM>> Get()
+        public async Task<IList<SportVM>> Get(string? FilterBy = null, string? Value = null)
         {
-            return await Mediator.Send(new GetSportsQuery());
+            return await Mediator.Send(new GetSportsQuery(FilterBy, Value));
         }
 
         // GET api/<SportsController>/5
