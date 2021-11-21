@@ -28,6 +28,13 @@ namespace Dashboard.API.Controllers
             return await Mediator.Send(new GetSportQuery(id));
         }
 
+        // GET api/<SportsController>/5
+        [HttpGet("GetByState/{stateId}")]
+        public async Task<IList<SportVM>> GetByState(int stateId)
+        {
+            return await Mediator.Send(new GetStateSportsQuery(stateId));
+        }
+
         // POST api/<SportsController>
         [HttpPost]
         public async Task<ActionResult<int>> Create(CreateSportCommand command)
