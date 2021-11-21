@@ -37,7 +37,7 @@ namespace Dashboard.Application.Sports.Queries
         public async Task<IList<SportVM>> Handle(GetSportsQuery request, CancellationToken cancellationToken)
         {
             var result = new List<SportVM>();
-            IQueryable<Sport> sportsQuery = _context.Sports.Include(m => m.State).AsQueryable();
+            IQueryable<Sport> sportsQuery = _context.Sports.AsQueryable();
 
             if (!string.IsNullOrEmpty(request.FilterBy))
             {
