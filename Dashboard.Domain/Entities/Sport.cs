@@ -8,6 +8,6 @@ namespace Dashboard.Domain.Entities
         public int Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        public List<StateSport> StateSports { get; set; }
+        public List<StateSport> StatesSports { get; set; }
     }
 }

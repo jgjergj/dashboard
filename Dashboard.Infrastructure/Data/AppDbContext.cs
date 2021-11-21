@@ -24,12 +24,12 @@ namespace Dashboard.Infrastructure.Data
         {
             modelBuilder.Entity<StateSport>()
                 .HasOne(s => s.State)
-                .WithMany(ss => ss.StateSports)
+                .WithMany(ss => ss.StatesSports)
                 .HasForeignKey(si => si.StateId);
 
             modelBuilder.Entity<StateSport>()
                 .HasOne(s => s.Sport)
-                .WithMany(ss => ss.StateSports)
+                .WithMany(ss => ss.StatesSports)
                 .HasForeignKey(si => si.SportId);
         }
 

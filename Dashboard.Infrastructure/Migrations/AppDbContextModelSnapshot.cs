@@ -912,13 +912,13 @@ namespace Dashboard.Infrastructure.Migrations
             modelBuilder.Entity("Dashboard.Domain.Entities.StateSport", b =>
                 {
                     b.HasOne("Dashboard.Domain.Entities.Sport", "Sport")
-                        .WithMany("StateSports")
+                        .WithMany("StatesSports")
                         .HasForeignKey("SportId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Dashboard.Domain.Entities.State", "State")
-                        .WithMany("StateSports")
+                        .WithMany("StatesSports")
                         .HasForeignKey("StateId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -957,12 +957,12 @@ namespace Dashboard.Infrastructure.Migrations
 
             modelBuilder.Entity("Dashboard.Domain.Entities.Sport", b =>
                 {
-                    b.Navigation("StateSports");
+                    b.Navigation("StatesSports");
                 });
 
             modelBuilder.Entity("Dashboard.Domain.Entities.State", b =>
                 {
-                    b.Navigation("StateSports");
+                    b.Navigation("StatesSports");
                 });
 #pragma warning restore 612, 618
         }

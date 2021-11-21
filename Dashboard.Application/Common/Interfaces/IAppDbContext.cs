@@ -19,6 +19,7 @@ namespace Dashboard.Application.Common.Interfaces
         DbSet<PaymentAccount> PaymentAccounts { get; set; }
         DbSet<Sport> Sports { get; set; }
         DbSet<State> States { get; set; }
+        DbSet<StateSport> StatesSports { get; set; }
         DbSet<Status> Statuses { get; set; }
         DbSet<Team> Teams { get; set; }
         DbSet<Type> Types { get; set; }
