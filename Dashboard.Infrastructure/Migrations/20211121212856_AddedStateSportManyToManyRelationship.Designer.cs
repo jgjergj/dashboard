@@ -3,15 +3,17 @@ using System;
 using Dashboard.Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace Dashboard.Infrastructure.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20211121212856_AddedStateSportManyToManyRelationship")]
+    partial class AddedStateSportManyToManyRelationship
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -588,7 +590,7 @@ namespace Dashboard.Infrastructure.Migrations
 
                     b.HasIndex("StateId");
 
-                    b.ToTable("StatesSports");
+                    b.ToTable("StateSports");
                 });
 
             modelBuilder.Entity("Dashboard.Domain.Entities.Status", b =>

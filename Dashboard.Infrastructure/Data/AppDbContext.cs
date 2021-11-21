@@ -20,6 +20,19 @@ namespace Dashboard.Infrastructure.Data
             _currentUserService = currentUserService;
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<StateSport>()
+                .HasOne(s => s.State)
+                .WithMany(ss => ss.StateSports)
+                .HasForeignKey(si => si.StateId);
+
+            modelBuilder.Entity<StateSport>()
+                .HasOne(s => s.Sport)
+                .WithMany(ss => ss.StateSports)
+                .HasForeignKey(si => si.SportId);
+        }
+
         public DbSet<Account> Accounts { get; set; }
         public DbSet<ArbitrageBet> ArbitrageBets { get; set; }
         public DbSet<ArbitrageMatch> ArbitrageMatches { get; set; }
@@ -32,6 +45,7 @@ namespace Dashboard.Infrastructure.Data
         public DbSet<PaymentAccount> PaymentAccounts { get; set; }
         public DbSet<Sport> Sports { get; set; }
         public DbSet<State> States { get; set; }
+        public DbSet<StateSport> StatesSports { get; set; }
         public DbSet<Status> Statuses { get; set; }
         public DbSet<Team> Teams { get; set; }
         public DbSet<Domain.Entities.Type> Types { get; set; }
